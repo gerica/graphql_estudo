@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export */
 import Message from './message';
+import User from './user';
 
-export { Message };
+export { Message, User };

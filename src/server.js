@@ -5,7 +5,7 @@ import { importSchema } from 'graphql-import';
 import resolvers from './graphql/resolvers/index';
 
 const loggingMiddleware = (req, res, next) => {
-  console.log('ip:', req.ip);
+  // console.log('ip:', req.ip);
   next();
 };
 
