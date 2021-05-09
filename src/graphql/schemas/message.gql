@@ -1,0 +1,26 @@
+input MessageInput {
+  content: String
+  author: String
+}
+
+type Message {
+  id: ID!
+  content: String
+  author: String
+}
+
+type MessageService {
+  getMessage: Message
+  createMessage: Message
+  updateMessage: Message
+  toString: String
+}
+
+type Query {
+  messageService(id: ID!): MessageService
+}
+
+type Mutation {
+  messageServiceCreate(input: MessageInput): MessageService
+  messageServiceUpdate(id: ID!, input: MessageInput): MessageService
+}
