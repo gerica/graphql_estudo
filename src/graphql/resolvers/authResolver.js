@@ -2,6 +2,9 @@
 
 import { UserService } from '../../api/services';
 
+const service = new UserService();
 export default {
-  register: ({ input }) => new UserService().register(input),
+  register: ({ input }) => service.register(input),
+  current: () => service.current(),
+  allUsers: () => service.allUsers(),
 };
