@@ -1,13 +1,14 @@
 {
-  "name": "radioLife",
+  "name": "radio",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --experimental-modules --es-module-specifier-resolution=node src/server.js",
-    "start_loca": "node -r dotenv/config --experimental-modules --es-module-specifier-resolution=node src/server.js",
-    "debbug": "LOG_LEVEL=debug node --experimental-modules --es-module-specifier-resolution=node src/server.js | ./node_modules/.bin/pino-pretty"
+    "start_local": "node -r dotenv/config --experimental-modules --es-module-specifier-resolution=node src/server.js",
+    "start_prod": "NODE_ENV=production node --experimental-modules --es-module-specifier-resolution=node src/server.js",
+    "debug": "LOG_LEVEL=debug node --experimental-modules --es-module-specifier-resolution=node src/server.js | ./node_modules/.bin/pino-pretty"
   },
   "keywords": [],
   "author": "",
