@@ -17,7 +17,6 @@ class MessageService {
   }
 
   getMessage() {
-    console.log(fakeDatabase);
     const { id } = this.message;
     if (!fakeDatabase[id]) {
       throw new Error(`no message exists with id ${id}`);
@@ -30,12 +29,11 @@ class MessageService {
   }
 
   createMessage() {
-    console.log(this.message);
     // Create a random id for our "database".
     const id = 1 + Math.floor(Math.random() * 10000);
     this.message.id = id;
     fakeDatabase[this.message.id] = this.message;
-    console.log(fakeDatabase);
+
     return this.message;
   }
 

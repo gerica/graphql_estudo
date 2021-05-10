@@ -3,12 +3,13 @@ import bcrypt from 'bcrypt';
 import jsonwebtoken from 'jsonwebtoken';
 import { User } from '../models';
 import { JWT_SECRET } from '../../utils/constants';
+import logger from '../../utils/logger';
 
 const fakeDatabase = [];
 let currentId = -1;
 class UserService {
   async register({ login, password }) {
-    console.log('register');
+    logger.info('register');
     const user = await this.create({
       login,
       password: await bcrypt.hash(password, 10),
@@ -20,17 +21,18 @@ class UserService {
   }
 
   async create(userData) {
-    console.log('Create user');
+    logger.info('create');
     return new Promise((resolve, reject) => {
       if (!userData) {
         reject(new Error('the data can not be null'));
       }
-      console.log(`current id: ${currentId}`);
+      logger.debug(currentId, 'current id');
       currentId += 1;
       const { login, password } = userData;
       const id = 1 + Math.floor(Math.random() * 100);
       const newUser = new User(id, login, password);
       fakeDatabase[currentId] = newUser;
+      logger.info(newUser, 'New user created');
       setTimeout(() => resolve(newUser), 1000);
     });
   }
@@ -54,7 +56,7 @@ class UserService {
   }
 
   async allUsers() {
-    console.log(fakeDatabase);
+    logger.debug(fakeDatabase);
     return new Promise((resolve) => {
       setTimeout(() => resolve(fakeDatabase), 1000);
     });
