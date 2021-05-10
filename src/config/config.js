@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 
 if (process.env.NODE_ENV !== 'production') {
-  dotenv.config();
+  dotenv.config({ path: `${process.cwd()}/src/config/.env` });
 }
 
 const { PORT, HOST, PATH_GRAPHQL } = process.env;
