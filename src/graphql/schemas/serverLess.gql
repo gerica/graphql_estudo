@@ -1,6 +1,0 @@
-type Query {
-  showMessage: String
-  showMessage2: String
-  showNome(nome: String!): String
-  callMicroService: String
-}

@@ -1,5 +1,4 @@
-import RandomDie from './randomDie';
-import MessageService from './messageService';
-import UserService from './userService';
+/* eslint-disable import/prefer-default-export */
+import Service from './service';
 
-export { RandomDie, MessageService, UserService };
+export { Service };
